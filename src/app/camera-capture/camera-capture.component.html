@@ -1,0 +1,13 @@
+<div class="camera-container">
+    <div class="d-flex justify-content-between align-items-start">
+        <div class="col-6">
+            <video #videoElement autoplay class="border border-4 w-100"></video>
+            <button class="btn btn-primary d-block mx-auto" (click)="captureImage()">Capture Image</button>
+        </div>
+        <div class="col-6">
+            <canvas #canvasElement class="w-100"></canvas>
+            <button class="btn btn-success d-block mx-auto" *ngIf="isCapturing" (click)="onSendImage()">Send image</button>
+        </div>
+    </div>
+    <!-- <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image" /> -->
+</div>
