@@ -12,6 +12,10 @@ interface AppConfigModel {
 
 export class AppConfig {
   static config: AppConfigModel;
+  isRunningLocal: boolean = false; //change it to true before publish over the server
+
+  baseLoginUrl = "bla/bla";
+  productionLoginUrl = "bla/bla";
 
   constructor(private http: HttpClient) {}
 
