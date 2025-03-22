@@ -5,13 +5,11 @@ import { AppConfig } from 'src/environments/AppConfig';
 @Injectable({
   providedIn: 'root'
 })
-export class FileService {
+export class LoginService {
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor( private httpClient: HttpClient) { }
 
   public FilterBy(file: string) {
-    return this.httpClient.post(`${AppConfig.config.serverURL}/mobile/claims`, file);
+    return this.httpClient.post(`${AppConfig.config.serverURL}/auth/auth/login`, file);
   }
 }
