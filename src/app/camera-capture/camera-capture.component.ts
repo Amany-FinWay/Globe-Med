@@ -48,10 +48,7 @@ export class CameraCaptureComponent implements AfterViewInit {
   }
 
   onSendImage() {
-    const claim = {
-      source : "globemed",
-      imgBase64 :"''''''''''''''''''''''''''''''''"
-    }
+
     
     this.router.navigate(['thank-you']);
   }

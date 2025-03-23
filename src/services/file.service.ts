@@ -11,7 +11,11 @@ export class FileService {
     private httpClient: HttpClient
   ) { }
 
-  public FilterBy(file: string) {
-    return this.httpClient.post(`${AppConfig.config.serverURL}/mobile/claims`, file);
+  public FilterBy(file: string , source : string) {
+    const claim = {
+      source : "globemed",
+      imgBase64 :file
+    }
+    return this.httpClient.post(`${AppConfig.config.serverURL}/mobile/claims`, claim);
   }
 }

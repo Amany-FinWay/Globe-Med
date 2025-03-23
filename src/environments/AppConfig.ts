@@ -14,8 +14,8 @@ export class AppConfig {
   static config: AppConfigModel;
   isRunningLocal: boolean = true; //change it to false before publish over the server
 
-  baseLoginUrl = "bla/bla";
-  productionLoginUrl = "bla/bla";
+  baseLoginUrl = "https://api.dbridges.net/dev";
+  productionLoginUrl = " https://api.dbridges.net/prod";
 
   constructor(private http: HttpClient) {}
 
