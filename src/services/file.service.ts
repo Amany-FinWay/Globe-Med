@@ -1,21 +1,23 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AppConfig } from 'src/environments/AppConfig';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  public sendImageData(payload: {
+    imgBase64: string;
+    source: string;
+  }): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Basic ' + btoa('Dbridge:F@Gr$y74')
+    });
 
-  public FilterBy(file: string , source : string) {
-    const claim = {
-      source : "globemed",
-      imgBase64 :file
-    }
-    return this.httpClient.post(`${AppConfig.config.serverURL}/mobile/claims`, claim);
+    const url = 'https://test-abdelfattah74.pythonanywhere.com/digital_bridge/create_request';
+    return this.httpClient.post(url, payload, { headers });
   }
 }
