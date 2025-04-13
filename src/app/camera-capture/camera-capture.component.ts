@@ -75,7 +75,7 @@ export class CameraCaptureComponent implements AfterViewInit, OnDestroy {
       next: (res) => {
         console.log('Image sent successfully:', res);
         this.isLoading = false;
-        this.router.navigate(['thank-you']);
+        this.router.navigate(['thank-you'], { queryParams: { Result: res.Result } });
       },
       error: (err) => {
         console.error('Error sending image:', err);

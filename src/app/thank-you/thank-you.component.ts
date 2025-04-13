@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-thank-you',
@@ -7,12 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./thank-you.component.scss']
 })
 export class ThankYouComponent implements OnInit {
-
+  resultMsg!: string;
+  
   constructor(
+    private activatedRouter: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.resultMsg = this.activatedRouter.snapshot.queryParams['Result'];
+    
     setTimeout(() => {
       this.router.navigate(['home']);
     }, 6000)
